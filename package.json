@@ -1,0 +1,26 @@
+{
+  "name": "07-http-server",
+  "version": "1.0.0",
+  "description": "![cf](https://i.imgur.com/7v5ASc8.png) Lab 07: Vanilla HTTP Server\r ======",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdkim/07-http-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pdkim/07-http-server/issues"
+  },
+  "homepage": "https://github.com/pdkim/07-http-server#readme",
+  "dependencies": {
+    "jest": "^23.1.0",
+    "lint": "^1.1.2",
+    "start": "^5.1.0",
+    "test": "^0.6.0"
+  }
+}
