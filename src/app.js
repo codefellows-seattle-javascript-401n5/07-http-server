@@ -3,7 +3,7 @@
 const http = require('http');
 
 
-const parser = require('./lib/parser');
+const parser = require('./lib/promise');
 
 const requestHandler = (req, res) => {
 
@@ -18,7 +18,9 @@ const requestHandler = (req, res) => {
         res.statusMessage = 'OK';
 
 
-        let message = req.url.query.you;
+        // let message = req.url.query.you;
+
+        let message = 'whassup';
 
 
         res.write(`<!DOCTYPE html><html><body><h1>${message}</h1></body></html>`);
