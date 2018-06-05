@@ -3,12 +3,9 @@
 // 1st Party library
 const http = require('http');
 
-// Local Libraries
-// parser will tear the URL apart and give us back an object with things like path, query params, etc.
-// it will also deal with POST data and append JSON to req.body if sent
 const parser = require('./lib/promise');
 
-const Cowsay = require('./lib/cowsay.js'); //DON'T KNOW IF I NEED THIS
+// const Cowsay = require('./lib/cowsay.js'); //DON'T KNOW IF I NEED THIS
 
 
 const requestHandler = (req, res) => {
@@ -22,19 +19,63 @@ const requestHandler = (req, res) => {
     .then(req => {
 
       if (req.method === 'GET' && req.url.pathname === '/') {
-        res.sendHeader('Content-Type', 'text.html');
+        res.setHeader('Content-Type', 'text/html');
         res.statusCode = 200;
         res.statusMessage = 'OK';
+
+        res.write(
+          `<html>
+          <head>
+            <title> cowsay </title>
+          </head>
+          <body>
+            <header>
+              <nav>
+                <ul>
+                  <li><a href="/cowsay?text">cowsay</a></li>
+                </ul>
+              </nav>
+              <header>
+                <main>
+                  <!-- project description -->
+                </main>
+          </body>
+        </html>`
+        );
+
+        res.end();
       }
 
+      else if(req.method === 'GET' && req.url.pathname === '/cowsay') {
+        console.log('the path is ', req.url.pathname);
+        res.setHeader('Content-Type', 'text/html');
+        res.statusCode = 200;
+        res.statusMessage = 'OK';
 
-      let message = req.url.query.Cowsay;
+        //let message = req.url.query.text;
 
-      res.write(`<!DOCTYPE html><html><head><title>cowsay</title><body><header><nav><ul><li><a href="/cowsay">${message}</a></li></ul></nav><header><main><!--project description --></main></body></html>`);
+        res.write(
+          `<!DOCTYPE html>
+          <html>
+            <head>
+              <title> cowsay </title>  
+            </head>
+            <body>
+              <h1> cowsay </h1>
+              <p>
+                please work!
+              </p>
+              <pre>
+                <!-- cowsay.say({text: req.query.text}) -->
+              </pre>
+            </body>
+          </html>`
+        );
 
-      res.end();
-      return;
-    }
+        res.end();
+      }
+
+    });
   //// In all cases, parse the URL
   // parser(req)
   //   .then(req => {
