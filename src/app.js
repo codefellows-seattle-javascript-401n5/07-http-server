@@ -3,7 +3,7 @@
 const http = require('http');
 
 const parser = require('./lib/parser');
-
+const cowsay = require('cowsay');
 const reqHandler = (req,res) => {
 
   parser(req)
@@ -20,8 +20,32 @@ const reqHandler = (req,res) => {
         res.end();
         return;
       }
+
+      else if ( req.method === 'POST' && req.url.pathname === '/data' ) {
+        res.setHeader('Content-Type', 'text/json');
+        res.statusCode = 200;
+        res.statusMessage = 'OK';
+        res.write( JSON.stringify(req.body) );
+        res.end();
+        return;
+      }
+
+      else {
+        res.setHeader('Content-Type', 'text/html');
+        res.statusCode = 404;
+        res.statusMessage = 'Not Found';
+        res.write('Resource Not Found');
+        res.end();
+      }
+
+    })
+    .catch(err => {
+      res.writeHead(500);
+      res.write(err);
+      res.end();
     });
 };
+    
 const app = http.createServer(reqHandler);
 
 module.exports = {
