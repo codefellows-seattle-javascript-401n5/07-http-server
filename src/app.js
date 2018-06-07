@@ -63,17 +63,22 @@ const requestHandler = (req, res) => {
                 });
                 return;
 
-            } else if (req.method === 'POST' && req.url.pathname === '/api/cowsay') {
+            } else if (req.method === 'GET' && req.url.pathname === '/api/cowsay') {
                 
                 res.setHeader('Content-Type', 'text/json');
                 res.statusCode = 200;
                 res.statusMessage = 'good';
-                let cowMessage = `${cowsay.say({text: req.query.url.text})}`
 
-                res.write(JSON.stringify({content : cowsay.say({text:req.body.text})}));
-
-                res.end();
-                return;
+                fs.readFile('cowsay.html', (err, data) => {
+                    if (err) {
+                        throw err
+                    }
+                    let html = data.toString();
+                    let cowsayText = cowsay.say({text: req.url.query.text});
+                    res.write(html.replace('{{cowsay}}',cowsayText));
+                    res.end();
+                    
+                });
 
             } else if(req.method === 'POST' && req.url.pathname === '/api/cowsay') {
                 res.setHeader('Content-Type', 'text/json');
