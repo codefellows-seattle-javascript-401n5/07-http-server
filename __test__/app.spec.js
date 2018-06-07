@@ -21,9 +21,9 @@ describe('Server Module', () => {
         });
     });
     
-    xit('Should return html with a project description and anchor to /cowsay', () => {
+    it('Should return html with a project description and anchor to /cowsay', () => {
 
-        let expected = 'GET'
+        let expected = 'GET '
         let 
     })
 })
