@@ -3,7 +3,7 @@
 const url = require('url');
 const queryString = require('querystring');
 
-module.exports = (req) => {
+module.exports = (req) => { //req = incoming message object
 
   return new Promise( (resolve, reject) => {
     if(!(req || req.url)) {reject('Invalid request object.  Cannot parse.');}
