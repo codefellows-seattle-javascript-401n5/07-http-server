@@ -3,7 +3,7 @@
 ___
 ###### TRAVIS: https://travis-ci.org/Lennerblom/07-http-server
 ###### HEROKU: https://cowsay07.herokuapp.com/
-###### PR: https://github.com/codefellows-seattle-javascript-401n5/07-http-server/pull/5
+###### PR: https://github.com/Lennerblom/07-http-server/pull/3
 ___
 This HTTP server uses the Cowsay module which displays a cow that will repeat what you type.  
 
