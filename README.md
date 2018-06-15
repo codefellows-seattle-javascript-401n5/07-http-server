@@ -1,22 +1,30 @@
-
+[![Build Status](https://travis-ci.org/Lennerblom/07-http-server.svg?branch=master)](https://travis-ci.org/Lennerblom/07-http-server)
 # 07: HTTP Server with Cowsay
 ___
-###### TRAVIS: 
-###### HEROKU: 
-###### PR: 
+###### TRAVIS: https://travis-ci.org/Lennerblom/07-http-server
+###### HEROKU: https://cowsay07.herokuapp.com/
+###### PR: https://github.com/codefellows-seattle-javascript-401n5/07-http-server/pull/5
 ___
-This HTTP server uses the Cowsay module which will repeat what the user types.  
+This HTTP server uses the Cowsay module which displays a cow that will repeat what you type.  
 
 ### **In order to run my app, do the following:**
 
-**1.** Click the following link to test the GET request in the browser:  
-//heroku app
-To make a GET request in the browser type:/cowsay?text={message} at the end of the url.
+**1.** Click the following link to test the GET request in the browser:  https://cowsay07.herokuapp.com/
+
+To make a GET request in the browser type:`/cowsay?text={your message}` at the end of the url.  You should see something like this:
+
+< your message >
+ -------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
 
 
-**2.** Using HTTPie run the following commands in the terminal:
+**2.** Using HTTPie run the following commands in the terminal to test for a POST:
 
-http POST :3000/api/cowsay text=hello
+`http POST :3000/api/cowsay text=hello`
 
 You should receive something like this:
 
@@ -29,5 +37,3 @@ Transfer-Encoding: chunked
 {
     "content": " _______\n< hello >\n -------\n        \\   ^__^\n         \\ (oo)\\_______\n            (__)\\  )\\/\\\n                ||----w |\n              ||     ||"
 }
-
-
